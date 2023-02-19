@@ -4,7 +4,6 @@ from .forms import *
 import face_recognition
 import cv2
 import numpy as np
-import winsound
 from django.db.models import Q
 from playsound import playsound
 import os
@@ -94,7 +93,6 @@ def scan(request):
                         last_face = LastFace(last_face=name)
                         last_face.save()
                         last_face = name
-                        winsound.PlaySound(sound, winsound.SND_ASYNC)
                     else:
                         pass
 
