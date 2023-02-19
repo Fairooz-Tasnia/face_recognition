@@ -1,6 +1,7 @@
 from django.urls import path,include
 from .views import *
-
+from django.views.static import serve
+from django.conf.urls import url
 
 urlpatterns = [
     path('', index, name= 'index'),
@@ -16,6 +17,9 @@ urlpatterns = [
 
     path('clear_history/',clear_history,name='clear_history'),
     path('reset/',reset,name='reset'),
+
+    url(r'^media/(?P<path>.*)$', serve,{'document_root':       settings.MEDIA_ROOT}), 
+    url(r'^static/(?P<path>.*)$', serve,{'document_root': settings.STATIC_ROOT}), 
 
 
 ]
